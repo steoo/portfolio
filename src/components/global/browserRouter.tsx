@@ -1,6 +1,7 @@
 import { createBrowserRouter, Navigate } from 'react-router-dom';
 
 import ErrorPage from '../../routes/errors/errorPage';
+import { homeLoader } from '../home/HOME.loader';
 import { rootLoader } from '../root/root.loader';
 
 const router = createBrowserRouter([
@@ -20,7 +21,11 @@ const router = createBrowserRouter([
       },
       {
         path: '/home',
-        element: <h1>Home</h1>,
+        loader: homeLoader,
+        async lazy() {
+          const Home = await import('../../routes/home');
+          return { Component: Home.default };
+        },
       },
     ],
   },

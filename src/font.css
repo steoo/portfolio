@@ -1,0 +1,29 @@
+@font-face {
+  font-family: 'OTNeueMontreal';
+  src:
+    url('/fonts/ot-neue-montreal/OTNeueMontreal-MediumSqueezed.woff2')
+      format('woff2'),
+    url('/fonts/ot-neue-montreal/OTNeueMontreal-MediumSqueezed.woff')
+      format('woff'),
+    url('/fonts/ot-neue-montreal/OTNeueMontreal-MediumSqueezed.ttf')
+      format('truetype'),
+    url('/fonts/ot-neue-montreal/OTNeueMontreal-MediumSqueezed.otf')
+      format('opentype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'OTNeueMontreal';
+  src:
+    url('/fonts/ot-neue-montreal/OTNeueMontreal-SemiBoldSqueezed.woff2')
+      format('woff2'),
+    url('/fonts/ot-neue-montreal/OTNeueMontreal-SemiBoldSqueezed.woff')
+      format('woff'),
+    url('/fonts/ot-neue-montreal/OTNeueMontreal-SemiBoldSqueezed.ttf')
+      format('truetype'),
+    url('/fonts/ot-neue-montreal/OTNeueMontreal-SemiBoldSqueezed.otf')
+      format('opentype');
+  font-weight: 600;
+  font-style: normal;
+}

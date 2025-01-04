@@ -7,6 +7,9 @@ export const theme: DefaultTheme = {
   white: '#FFFFFF',
   black: '#000000',
 
+  mediumText: generateClampSizes(32, 64),
+  bigText: generateClampSizes(48, 96),
+
   menuItem: generateClampSizes(18, 36),
   rootVerticalMargin: generateClampSizes(12, 24),
   rootHorizontalMargin: generateClampSizes(16, 32),

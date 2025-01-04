@@ -20,7 +20,10 @@ const router = createBrowserRouter([
       },
       {
         path: '/home',
-        element: <h1>Home</h1>,
+        async lazy() {
+          const Home = await import('../../routes/home');
+          return { Component: Home.default };
+        },
       },
     ],
   },

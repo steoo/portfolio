@@ -1,12 +1,14 @@
 import React, { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
+import { RouterProvider } from 'react-router-dom';
+
 import { client } from './components/global/apolloClient.ts';
+import router from './components/global/browserRouter.tsx';
 import { theme } from './components/global/theme.ts';
 import 'normalize.css';
 
 import './index.css';
-import { RouterProvider } from 'react-router-dom';
-import router from './components/global/browserRouter.tsx';
+import './font.css';
 
 const ApolloProvider = React.lazy(() =>
   import('@apollo/client').then((module) => ({

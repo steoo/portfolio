@@ -1,5 +1,13 @@
 import { gql } from '@apollo/client';
 
 export const GET_ROOT = gql`
-  query GetRoot {}
+  query GetRoot {
+    global {
+      about
+      contacts
+      directory
+      experience
+      selectedProjects
+    }
+  }
 `;

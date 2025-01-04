@@ -12,7 +12,7 @@ const router = createBrowserRouter([
       return { Component: Root.default };
     },
     errorElement: <ErrorPage />,
-    // loader: rootLoader,
+    loader: rootLoader,
     children: [
       {
         path: '/',

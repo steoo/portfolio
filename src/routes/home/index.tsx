@@ -1,10 +1,13 @@
 import { useLoaderData } from 'react-router-dom';
 
+import { AboutPage } from '../../../types/graphql';
+import { QueryLoaderResult } from '../../../types/loaders';
 import { Container } from '../../components/home/home.styled';
-import { HomeLoaderData } from '../../components/home/home.types';
 
 const Home = () => {
-  const { data } = useLoaderData() as HomeLoaderData;
+  const { data } = useLoaderData() as QueryLoaderResult<{
+    aboutPage: AboutPage;
+  }>;
 
   return (
     <Container>

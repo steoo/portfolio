@@ -1,5 +1,7 @@
 import { Outlet, useLoaderData, useLocation } from 'react-router-dom';
 
+import { Global } from '../../types/graphql';
+import { QueryLoaderResult } from '../../types/loaders';
 import {
   GlobalStyle,
   MenuNav,
@@ -7,10 +9,11 @@ import {
   OutletContainer,
   RootContainer,
 } from '../components/root/root.styled';
-import { RootLoaderData } from '../components/root/root.types';
 
 const Root = () => {
-  const { data } = useLoaderData() as RootLoaderData;
+  const { data } = useLoaderData() as QueryLoaderResult<{
+    global: Global;
+  }>;
   const location = useLocation();
 
   const isActive = (path: string) =>

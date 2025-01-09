@@ -2,11 +2,12 @@ import { gql } from '@apollo/client';
 
 export const GET_PROJECTS = gql`
   query GetProjects {
-    project {
+    projects {
       metadata {
-        title
-        link
         description
+        id
+        link
+        title
       }
     }
   }

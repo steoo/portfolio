@@ -26,7 +26,7 @@ const Root = () => {
         <MenuNav>
           <ol>
             <li>
-              <MenuItem to="/about" $active={isActive('home')}>
+              <MenuItem to="/home" $active={isActive('home')}>
                 {data.global.about}
               </MenuItem>
             </li>
@@ -43,6 +43,16 @@ const Root = () => {
                 {data.global.experience}
               </MenuItem>
             </li>
+            <li>
+              <MenuItem to="/contacts" $active={isActive('contacts')}>
+                {data.global.contacts}
+              </MenuItem>
+            </li>
+            <li>
+              <MenuItem to="/directory" $active={isActive('directory')}>
+                {data.global.directory}
+              </MenuItem>
+            </li>
           </ol>
         </MenuNav>
       </header>
@@ -53,14 +63,7 @@ const Root = () => {
         <MenuNav>
           <ol>
             <li>
-              <MenuItem to="/contacts" $active={isActive('contacts')}>
-                {data.global.contacts}
-              </MenuItem>
-            </li>
-            <li>
-              <MenuItem to="/directory" $active={isActive('directory')}>
-                {data.global.directory}
-              </MenuItem>
+              <MenuItem to="/home">stefano imparato</MenuItem>
             </li>
           </ol>
         </MenuNav>

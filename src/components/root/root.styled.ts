@@ -37,5 +37,6 @@ export const MenuItem = styled(Link)<{ $active?: boolean }>`
 `;
 
 export const OutletContainer = styled.main`
+  display: flex;
   flex: 1;
 `;

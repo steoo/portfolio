@@ -185,6 +185,20 @@ export type DirectoryEntryInput = {
   publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
 };
 
+export type DirectoryPage = {
+  __typename?: 'DirectoryPage';
+  createdAt?: Maybe<Scalars['DateTime']['output']>;
+  description?: Maybe<Scalars['String']['output']>;
+  documentId: Scalars['ID']['output'];
+  publishedAt?: Maybe<Scalars['DateTime']['output']>;
+  updatedAt?: Maybe<Scalars['DateTime']['output']>;
+};
+
+export type DirectoryPageInput = {
+  description?: InputMaybe<Scalars['String']['input']>;
+  publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
+};
+
 export type Experience = {
   __typename?: 'Experience';
   createdAt?: Maybe<Scalars['DateTime']['output']>;
@@ -250,7 +264,7 @@ export type FloatFilterInput = {
   startsWith?: InputMaybe<Scalars['Float']['input']>;
 };
 
-export type GenericMorph = AboutPage | ComponentCollectionEntry | ContactLink | DirectoryEntry | Experience | Global | I18NLocale | Project | ReviewWorkflowsWorkflow | ReviewWorkflowsWorkflowStage | UploadFile | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser;
+export type GenericMorph = AboutPage | ComponentCollectionEntry | ContactLink | DirectoryEntry | DirectoryPage | Experience | Global | I18NLocale | Project | ReviewWorkflowsWorkflow | ReviewWorkflowsWorkflowStage | UploadFile | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser;
 
 export type Global = {
   __typename?: 'Global';
@@ -394,6 +408,7 @@ export type Mutation = {
   deleteAboutPage?: Maybe<DeleteMutationResponse>;
   deleteContactLink?: Maybe<DeleteMutationResponse>;
   deleteDirectoryEntry?: Maybe<DeleteMutationResponse>;
+  deleteDirectoryPage?: Maybe<DeleteMutationResponse>;
   deleteExperience?: Maybe<DeleteMutationResponse>;
   deleteGlobal?: Maybe<DeleteMutationResponse>;
   deleteProject?: Maybe<DeleteMutationResponse>;
@@ -416,6 +431,7 @@ export type Mutation = {
   updateAboutPage?: Maybe<AboutPage>;
   updateContactLink?: Maybe<ContactLink>;
   updateDirectoryEntry?: Maybe<DirectoryEntry>;
+  updateDirectoryPage?: Maybe<DirectoryPage>;
   updateExperience?: Maybe<Experience>;
   updateGlobal?: Maybe<Global>;
   updateProject?: Maybe<Project>;
@@ -574,6 +590,12 @@ export type MutationUpdateDirectoryEntryArgs = {
 };
 
 
+export type MutationUpdateDirectoryPageArgs = {
+  data: DirectoryPageInput;
+  status?: InputMaybe<PublicationStatus>;
+};
+
+
 export type MutationUpdateExperienceArgs = {
   data: ExperienceInput;
   documentId: Scalars['ID']['input'];
@@ -692,6 +714,7 @@ export type Query = {
   directoryEntries: Array<Maybe<DirectoryEntry>>;
   directoryEntries_connection?: Maybe<DirectoryEntryEntityResponseCollection>;
   directoryEntry?: Maybe<DirectoryEntry>;
+  directoryPage?: Maybe<DirectoryPage>;
   experience?: Maybe<Experience>;
   experiences: Array<Maybe<Experience>>;
   experiences_connection?: Maybe<ExperienceEntityResponseCollection>;
@@ -766,6 +789,11 @@ export type QueryDirectoryEntries_ConnectionArgs = {
 
 export type QueryDirectoryEntryArgs = {
   documentId: Scalars['ID']['input'];
+  status?: InputMaybe<PublicationStatus>;
+};
+
+
+export type QueryDirectoryPageArgs = {
   status?: InputMaybe<PublicationStatus>;
 };
 
@@ -1339,6 +1367,21 @@ export type UsersPermissionsUserRelationResponseCollection = {
   nodes: Array<UsersPermissionsUser>;
 };
 
+export type GetContactsQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetContactsQuery = { __typename?: 'Query', contactLinks: Array<{ __typename?: 'ContactLink', title: string, url: string } | null> };
+
+export type GetDirectoryQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetDirectoryQuery = { __typename?: 'Query', directoryEntries: Array<{ __typename?: 'DirectoryEntry', documentId: string, metadata: Array<{ __typename?: 'ComponentCollectionEntry', title: string, description: string, link: string } | null> } | null> };
+
+export type GetExperiencesQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetExperiencesQuery = { __typename?: 'Query', global?: { __typename?: 'Global', experience?: string | null } | null, experiences: Array<{ __typename?: 'Experience', documentId: string, title: string, year: string } | null> };
+
 export type GetHomeQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -1355,6 +1398,9 @@ export type GetProjectsQueryVariables = Exact<{ [key: string]: never; }>;
 export type GetProjectsQuery = { __typename?: 'Query', projects: Array<{ __typename?: 'Project', metadata: Array<{ __typename?: 'ComponentCollectionEntry', description: string, id: string, link: string, title: string } | null> } | null> };
 
 
+export const GetContactsDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"GetContacts"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"contactLinks"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"url"}}]}}]}}]} as unknown as DocumentNode<GetContactsQuery, GetContactsQueryVariables>;
+export const GetDirectoryDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"GetDirectory"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"directoryEntries"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"documentId"}},{"kind":"Field","name":{"kind":"Name","value":"metadata"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"link"}}]}}]}}]}}]} as unknown as DocumentNode<GetDirectoryQuery, GetDirectoryQueryVariables>;
+export const GetExperiencesDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"GetExperiences"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"global"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"experience"}}]}},{"kind":"Field","name":{"kind":"Name","value":"experiences"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"documentId"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"year"}}]}}]}}]} as unknown as DocumentNode<GetExperiencesQuery, GetExperiencesQueryVariables>;
 export const GetHomeDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"GetHOME"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"aboutPage"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"description"}}]}}]}}]} as unknown as DocumentNode<GetHomeQuery, GetHomeQueryVariables>;
 export const GetRootDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"GetRoot"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"global"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"about"}},{"kind":"Field","name":{"kind":"Name","value":"contacts"}},{"kind":"Field","name":{"kind":"Name","value":"directory"}},{"kind":"Field","name":{"kind":"Name","value":"experience"}},{"kind":"Field","name":{"kind":"Name","value":"selectedProjects"}}]}}]}}]} as unknown as DocumentNode<GetRootQuery, GetRootQueryVariables>;
 export const GetProjectsDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"GetProjects"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"projects"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"metadata"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"link"}},{"kind":"Field","name":{"kind":"Name","value":"title"}}]}}]}}]}}]} as unknown as DocumentNode<GetProjectsQuery, GetProjectsQueryVariables>;

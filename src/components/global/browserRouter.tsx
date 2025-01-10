@@ -2,6 +2,7 @@ import { createBrowserRouter, Navigate } from 'react-router-dom';
 
 import ErrorPage from '../../routes/errors/errorPage';
 import { GET_CONTACTS } from '../contacts/contacts.fragment';
+import { GET_DIRECTORY } from '../directory/directory.fragment';
 import { GET_EXPERIENCES } from '../experiences/experiences.fragment';
 import { GET_HOME } from '../home/home.fragment';
 import { GET_ROOT } from '../root/root.fragment';
@@ -58,6 +59,14 @@ const router = createBrowserRouter([
         async lazy() {
           const Contacts = await import('../../routes/contacts');
           return { Component: Contacts.default };
+        },
+      },
+      {
+        path: '/directory',
+        loader: queryLoader(GET_DIRECTORY),
+        async lazy() {
+          const Directory = await import('../../routes/directory');
+          return { Component: Directory.default };
         },
       },
     ],

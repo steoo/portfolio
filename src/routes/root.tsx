@@ -8,6 +8,7 @@ import {
   MenuItem,
   OutletContainer,
   RootContainer,
+  Header,
 } from '../components/root/root.styled';
 
 const Root = () => {
@@ -22,7 +23,7 @@ const Root = () => {
   return (
     <RootContainer>
       <GlobalStyle />
-      <header>
+      <Header>
         <MenuNav>
           <ol>
             <li>
@@ -55,7 +56,7 @@ const Root = () => {
             </li>
           </ol>
         </MenuNav>
-      </header>
+      </Header>
       <OutletContainer>
         <Outlet />
       </OutletContainer>

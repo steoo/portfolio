@@ -1,28 +1,27 @@
 import styled from 'styled-components';
 
 import { generateClampSizes } from '../../utils/styled-helpers';
-import { FlexBetween, FlexColumn } from '../global/global.styled';
 
 export const ProjectsContainer = styled.div`
-  /* ${FlexBetween}; */
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-
   flex: 1;
 
-  /* max-height: 350px; */
-  /* overflow-y: scroll; */
-  column-gap: ${generateClampSizes(48, 96)};
+  list-style-position: inside;
+
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  row-gap: ${generateClampSizes(16, 32)};
+
+  @media (min-width: ${(props) => props.theme.laptop}) {
+    grid-template-columns: repeat(3, 1fr);
+  }
 `;
 
 export const Project = styled.div`
-  ${FlexColumn};
+  display: list-item;
+  position: relative;
 
-  font-family: 'OTNeueMontrealVariable';
+  /* font-family: 'OTNeueMontrealVariable'; */
   /* font-variation-settings: 'wght' 700; */
-
-  max-width: 920px;
-  width: 100%;
 
   transform-origin: top left;
 
@@ -37,14 +36,21 @@ export const Project = styled.div`
   }
 
   h1 {
-    font-size: ${({ theme }) => theme.bigText};
+    font-size: ${({ theme }) => theme.mediumText};
     letter-spacing: 2px;
   }
 
   h2 {
+    margin-top: 16px;
     font-size: ${({ theme }) => theme.smallText};
     text-transform: lowercase;
 
-    max-width: 720px;
+    max-width: ${generateClampSizes(180, 400)};
+  }
+
+  img {
+    position: absolute;
+    top: 5px;
+    left: 15px;
   }
 `;

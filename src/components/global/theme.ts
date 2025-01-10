@@ -7,7 +7,7 @@ export const theme: DefaultTheme = {
   white: '#FFFFFF',
   black: '#000000',
 
-  smallText: generateClampSizes(18, 36),
+  smallText: generateClampSizes(12, 24),
   mediumText: generateClampSizes(32, 64),
   bigText: generateClampSizes(48, 96),
 

@@ -1,6 +1,7 @@
 import { createBrowserRouter, Navigate } from 'react-router-dom';
 
 import ErrorPage from '../../routes/errors/errorPage';
+import { GET_EXPERIENCES } from '../experiences/experiences.fragment';
 import { GET_HOME } from '../home/home.fragment';
 import { GET_ROOT } from '../root/root.fragment';
 import { GET_PROJECTS } from '../selectedProjects/selectedProjects.fragment';
@@ -39,6 +40,15 @@ const router = createBrowserRouter([
           );
 
           return { Component: SelectedProjects.default };
+        },
+      },
+      {
+        path: '/experiences',
+        loader: queryLoader(GET_EXPERIENCES),
+        async lazy() {
+          const Experiences = await import('../../routes/experiences');
+
+          return { Component: Experiences.default };
         },
       },
     ],

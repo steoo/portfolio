@@ -40,7 +40,7 @@ const Root = () => {
               </MenuItem>
             </li>
             <li>
-              <MenuItem to="/experience" $active={isActive('experience')}>
+              <MenuItem to="/experiences" $active={isActive('experiences')}>
                 {data.global.experience}
               </MenuItem>
             </li>

@@ -3,11 +3,10 @@ import { useLoaderData } from 'react-router-dom';
 import { Experience } from '../../../types/graphql';
 import { QueryLoaderResult } from '../../../types/loaders';
 import {
-  Container,
-  Title,
-  Grid,
   ExperienceCard,
+  ExperiencesContainer,
 } from '../../components/experiences/experiences.styled';
+import { PageContainer } from '../../components/global/global.styled';
 
 export default function Experiences() {
   const { data } = useLoaderData() as QueryLoaderResult<{
@@ -18,16 +17,17 @@ export default function Experiences() {
   }>;
 
   return (
-    <Container>
-      <Title>{data.global.experience}</Title>
-      <Grid>
+    <PageContainer>
+      <ExperiencesContainer as="ol">
         {data.experiences.map(({ documentId, title, year }) => (
-          <ExperienceCard key={documentId}>
-            <h2>{title}</h2>
-            <h3>{year}</h3>
-          </ExperienceCard>
+          <li key={documentId}>
+            <ExperienceCard>
+              <h2>{title}</h2>
+              <h3>{year}</h3>
+            </ExperienceCard>
+          </li>
         ))}
-      </Grid>
-    </Container>
+      </ExperiencesContainer>
+    </PageContainer>
   );
 }

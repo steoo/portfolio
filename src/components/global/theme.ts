@@ -6,6 +6,7 @@ const theme = {
   black: '#000000',
 
   smallText: generateClampSizes(12, 24),
+  regularText: generateClampSizes(20, 40),
   mediumText: generateClampSizes(32, 64),
   bigText: generateClampSizes(48, 96),
 

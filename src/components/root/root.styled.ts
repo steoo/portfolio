@@ -19,6 +19,12 @@ export const RootContainer = styled.div`
   ${FlexColumnBetween};
 `;
 
+export const Header = styled.div`
+  border-bottom: 4px solid ${({ theme }) => theme.black};
+
+  padding-bottom: ${({ theme }) => theme.rootVerticalMargin};
+`;
+
 export const MenuNav = styled.nav`
   text-transform: uppercase;
 
@@ -37,5 +43,6 @@ export const MenuItem = styled(Link)<{ $active?: boolean }>`
 `;
 
 export const OutletContainer = styled.main`
+  display: flex;
   flex: 1;
 `;

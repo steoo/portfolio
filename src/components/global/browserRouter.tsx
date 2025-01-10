@@ -1,8 +1,12 @@
 import { createBrowserRouter, Navigate } from 'react-router-dom';
 
 import ErrorPage from '../../routes/errors/errorPage';
-import { homeLoader } from '../home/HOME.loader';
-import { rootLoader } from '../root/root.loader';
+import { GET_EXPERIENCES } from '../experiences/experiences.fragment';
+import { GET_HOME } from '../home/home.fragment';
+import { GET_ROOT } from '../root/root.fragment';
+import { GET_PROJECTS } from '../selectedProjects/selectedProjects.fragment';
+
+import { queryLoader } from './genericQueryLoader';
 
 const router = createBrowserRouter([
   {
@@ -13,7 +17,7 @@ const router = createBrowserRouter([
       return { Component: Root.default };
     },
     errorElement: <ErrorPage />,
-    loader: rootLoader,
+    loader: queryLoader(GET_ROOT),
     children: [
       {
         path: '/',
@@ -21,10 +25,30 @@ const router = createBrowserRouter([
       },
       {
         path: '/home',
-        loader: homeLoader,
+        loader: queryLoader(GET_HOME),
         async lazy() {
           const Home = await import('../../routes/home');
           return { Component: Home.default };
+        },
+      },
+      {
+        path: '/selected-projects',
+        loader: queryLoader(GET_PROJECTS),
+        async lazy() {
+          const SelectedProjects = await import(
+            '../../routes/selectedProjects'
+          );
+
+          return { Component: SelectedProjects.default };
+        },
+      },
+      {
+        path: '/experiences',
+        loader: queryLoader(GET_EXPERIENCES),
+        async lazy() {
+          const Experiences = await import('../../routes/experiences');
+
+          return { Component: Experiences.default };
         },
       },
     ],

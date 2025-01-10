@@ -1,16 +1,20 @@
 import { Outlet, useLoaderData, useLocation } from 'react-router-dom';
 
+import { Global } from '../../types/graphql';
+import { QueryLoaderResult } from '../../types/loaders';
 import {
   GlobalStyle,
   MenuNav,
   MenuItem,
   OutletContainer,
   RootContainer,
+  Header,
 } from '../components/root/root.styled';
-import { RootLoaderData } from '../components/root/root.types';
 
 const Root = () => {
-  const { data } = useLoaderData() as RootLoaderData;
+  const { data } = useLoaderData() as QueryLoaderResult<{
+    global: Global;
+  }>;
   const location = useLocation();
 
   const isActive = (path: string) =>
@@ -19,11 +23,11 @@ const Root = () => {
   return (
     <RootContainer>
       <GlobalStyle />
-      <header>
+      <Header>
         <MenuNav>
           <ol>
             <li>
-              <MenuItem to="/about" $active={isActive('home')}>
+              <MenuItem to="/home" $active={isActive('home')}>
                 {data.global.about}
               </MenuItem>
             </li>
@@ -36,19 +40,10 @@ const Root = () => {
               </MenuItem>
             </li>
             <li>
-              <MenuItem to="/experience" $active={isActive('experience')}>
+              <MenuItem to="/experiences" $active={isActive('experiences')}>
                 {data.global.experience}
               </MenuItem>
             </li>
-          </ol>
-        </MenuNav>
-      </header>
-      <OutletContainer>
-        <Outlet />
-      </OutletContainer>
-      <footer>
-        <MenuNav>
-          <ol>
             <li>
               <MenuItem to="/contacts" $active={isActive('contacts')}>
                 {data.global.contacts}
@@ -58,6 +53,18 @@ const Root = () => {
               <MenuItem to="/directory" $active={isActive('directory')}>
                 {data.global.directory}
               </MenuItem>
+            </li>
+          </ol>
+        </MenuNav>
+      </Header>
+      <OutletContainer>
+        <Outlet />
+      </OutletContainer>
+      <footer>
+        <MenuNav>
+          <ol>
+            <li>
+              <MenuItem to="/home">stefano imparato</MenuItem>
             </li>
           </ol>
         </MenuNav>

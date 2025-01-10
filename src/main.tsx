@@ -4,7 +4,7 @@ import { RouterProvider } from 'react-router-dom';
 
 import { client } from './components/global/apolloClient.ts';
 import router from './components/global/browserRouter.tsx';
-import { theme } from './components/global/theme.ts';
+import theme from './components/global/theme.ts';
 import 'normalize.css';
 
 import './index.css';

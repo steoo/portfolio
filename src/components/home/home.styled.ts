@@ -1,11 +1,9 @@
 import styled from 'styled-components';
 
-import { generateClampSizes } from '../../utils/styled-helpers';
+import { PageContainer } from '../global/global.styled';
 
-export const Container = styled.div`
+export const Container = styled(PageContainer)`
   max-width: 720px;
-
-  padding-top: ${generateClampSizes(64, 128)};
 
   p {
     font-size: ${({ theme }) => theme.mediumText};

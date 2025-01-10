@@ -14,7 +14,9 @@ import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/
  * Learn more about it here: https://the-guild.dev/graphql/codegen/plugins/presets/preset-client#reducing-bundle-size
  */
 const documents = {
+    "\n  query GetHOME {\n    aboutPage {\n      description\n    }\n  }\n": types.GetHomeDocument,
     "\n  query GetRoot {\n    global {\n      about\n      contacts\n      directory\n      experience\n      selectedProjects\n    }\n  }\n": types.GetRootDocument,
+    "\n  query GetProjects {\n    projects {\n      metadata {\n        description\n        id\n        link\n        title\n      }\n    }\n  }\n": types.GetProjectsDocument,
 };
 
 /**
@@ -34,7 +36,15 @@ export function graphql(source: string): unknown;
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
+export function graphql(source: "\n  query GetHOME {\n    aboutPage {\n      description\n    }\n  }\n"): (typeof documents)["\n  query GetHOME {\n    aboutPage {\n      description\n    }\n  }\n"];
+/**
+ * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
 export function graphql(source: "\n  query GetRoot {\n    global {\n      about\n      contacts\n      directory\n      experience\n      selectedProjects\n    }\n  }\n"): (typeof documents)["\n  query GetRoot {\n    global {\n      about\n      contacts\n      directory\n      experience\n      selectedProjects\n    }\n  }\n"];
+/**
+ * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function graphql(source: "\n  query GetProjects {\n    projects {\n      metadata {\n        description\n        id\n        link\n        title\n      }\n    }\n  }\n"): (typeof documents)["\n  query GetProjects {\n    projects {\n      metadata {\n        description\n        id\n        link\n        title\n      }\n    }\n  }\n"];
 
 export function graphql(source: string) {
   return (documents as any)[source] ?? {};

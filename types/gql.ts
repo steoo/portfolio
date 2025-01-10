@@ -15,7 +15,7 @@ import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/
  */
 const documents = {
     "\n  query GetContacts {\n    contactLinks {\n      title\n      url\n    }\n  }\n": types.GetContactsDocument,
-    "\n  query GetDirectory {\n    directoryEntries {\n      documentId\n      metadata {\n        title\n        description\n        link\n      }\n    }\n  }\n": types.GetDirectoryDocument,
+    "\n  query GetDirectory {\n    directoryPage {\n      description\n    }\n    directoryEntries {\n      documentId\n      metadata {\n        title\n        description\n        link\n      }\n    }\n  }\n": types.GetDirectoryDocument,
     "\n  query GetExperiences {\n    global {\n      experience\n    }\n    experiences {\n      documentId\n      title\n      year\n    }\n  }\n": types.GetExperiencesDocument,
     "\n  query GetHOME {\n    aboutPage {\n      description\n    }\n  }\n": types.GetHomeDocument,
     "\n  query GetRoot {\n    global {\n      about\n      contacts\n      directory\n      experience\n      selectedProjects\n    }\n  }\n": types.GetRootDocument,
@@ -43,7 +43,7 @@ export function graphql(source: "\n  query GetContacts {\n    contactLinks {\n  
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(source: "\n  query GetDirectory {\n    directoryEntries {\n      documentId\n      metadata {\n        title\n        description\n        link\n      }\n    }\n  }\n"): (typeof documents)["\n  query GetDirectory {\n    directoryEntries {\n      documentId\n      metadata {\n        title\n        description\n        link\n      }\n    }\n  }\n"];
+export function graphql(source: "\n  query GetDirectory {\n    directoryPage {\n      description\n    }\n    directoryEntries {\n      documentId\n      metadata {\n        title\n        description\n        link\n      }\n    }\n  }\n"): (typeof documents)["\n  query GetDirectory {\n    directoryPage {\n      description\n    }\n    directoryEntries {\n      documentId\n      metadata {\n        title\n        description\n        link\n      }\n    }\n  }\n"];
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */

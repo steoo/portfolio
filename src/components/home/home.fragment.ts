@@ -4,6 +4,7 @@ export const GET_HOME = gql`
   query GetHOME {
     aboutPage {
       description
+      richDescription
     }
   }
 `;

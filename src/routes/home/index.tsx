@@ -1,8 +1,9 @@
+import { BlocksRenderer } from '@strapi/blocks-react-renderer';
 import { useLoaderData } from 'react-router-dom';
 
 import { AboutPage } from '../../../types/graphql';
 import { QueryLoaderResult } from '../../../types/loaders';
-import { Container } from '../../components/home/home.styled';
+import { HomeContainer } from '../../components/home/home.styled';
 
 const Home = () => {
   const { data } = useLoaderData() as QueryLoaderResult<{
@@ -10,9 +11,11 @@ const Home = () => {
   }>;
 
   return (
-    <Container>
-      <p>{data.aboutPage.description}</p>
-    </Container>
+    <HomeContainer>
+      {/* <p>{data.aboutPage.description}</p>
+       */}
+      <BlocksRenderer content={data.aboutPage.richDescription} />
+    </HomeContainer>
   );
 };
 

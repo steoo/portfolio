@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 
-import { PageContainer } from '../global/global.styled';
+import { FlexColumnBetween, PageContainer } from '../global/global.styled';
 
-export const Container = styled(PageContainer)`
+export const HomeContainer = styled(PageContainer)`
   max-width: 720px;
+  ${FlexColumnBetween};
 
   p {
-    font-size: ${({ theme }) => theme.mediumText};
-    text-transform: uppercase;
+    font-size: ${({ theme }) => theme.mediumSmallText};
   }
 `;

@@ -2,10 +2,13 @@ import { generateClampSizes } from '../../utils/styled-helpers';
 
 const theme = {
   red: '#FF0004',
+  brightCrimson: '#F1011F',
   white: '#FFFFFF',
   black: '#000000',
 
+  tinyText: generateClampSizes(10, 20),
   smallText: generateClampSizes(12, 24),
+  mediumSmallText: generateClampSizes(18, 32),
   regularText: generateClampSizes(20, 40),
   mediumText: generateClampSizes(32, 64),
   bigText: generateClampSizes(48, 96),
@@ -13,6 +16,7 @@ const theme = {
   menuItem: generateClampSizes(18, 36),
   rootVerticalMargin: generateClampSizes(12, 24),
   rootHorizontalMargin: generateClampSizes(16, 32),
+  footerVerticalMargin: generateClampSizes(24, 48),
 
   mobileS: '320px', // Small mobile
   mobileM: '375px', // Medium mobile

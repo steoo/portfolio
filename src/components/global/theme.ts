@@ -6,12 +6,12 @@ const theme = {
   white: '#FFFFFF',
   black: '#000000',
 
-  tinyText: generateClampSizes(10, 20),
-  smallText: generateClampSizes(12, 24),
-  mediumSmallText: generateClampSizes(18, 32),
-  regularText: generateClampSizes(20, 40),
-  mediumText: generateClampSizes(32, 64),
-  bigText: generateClampSizes(48, 96),
+  tinyText: generateClampSizes(16, 20),
+  smallText: generateClampSizes(18, 24),
+  mediumSmallText: generateClampSizes(24, 32),
+  regularText: generateClampSizes(28, 40),
+  mediumText: generateClampSizes(36, 64),
+  bigText: generateClampSizes(54, 96),
 
   menuItem: generateClampSizes(18, 36),
   rootVerticalMargin: generateClampSizes(12, 24),

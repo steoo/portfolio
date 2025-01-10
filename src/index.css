@@ -45,7 +45,7 @@ ol[role='list'] {
 
 /* Set core body defaults */
 body {
-  min-height: 100vh;
+  height: 100vh;
   line-height: 1.2;
 
   font-family: 'OTNeueMontreal', sans-serif;

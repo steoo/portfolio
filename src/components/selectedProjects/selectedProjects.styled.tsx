@@ -9,7 +9,7 @@ export const ProjectsContainer = styled.div`
 
   display: grid;
   grid-template-columns: repeat(1, 1fr);
-  row-gap: ${generateClampSizes(16, 32)};
+  row-gap: ${generateClampSizes(54, 32)};
 
   @media (min-width: ${(props) => props.theme.laptop}) {
     grid-template-columns: repeat(3, 1fr);
@@ -17,12 +17,8 @@ export const ProjectsContainer = styled.div`
 `;
 
 export const Project = styled.div`
-  display: list-item;
+  display: block;
   position: relative;
-
-  a {
-    text-decoration: none;
-  }
 
   h1,
   h2 {
@@ -36,16 +32,29 @@ export const Project = styled.div`
   }
 
   h2 {
-    margin-top: 8px;
     font-size: ${({ theme }) => theme.smallText};
     text-transform: none;
 
-    max-width: ${generateClampSizes(180, 400)};
+    max-width: ${generateClampSizes(260, 400)};
   }
 
   img {
-    position: absolute;
-    top: 5px;
-    left: 15px;
+    display: none;
+  }
+
+  @media (min-width: ${(props) => props.theme.laptop}) {
+    display: list-item;
+
+    a {
+      text-decoration: none;
+    }
+
+    img {
+      position: absolute;
+      top: 5px;
+      left: 15px;
+
+      display: block;
+    }
   }
 `;

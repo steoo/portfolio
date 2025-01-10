@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const ContactLinksContainer = styled.div`
   display: grid;
-  grid-template-rows: repeat(auto-fill, 100px);
+  grid-template-rows: repeat(auto-fill, 50px);
 
   @media (min-width: ${(props) => props.theme.laptop}) {
     grid-template-columns: repeat(3, 1fr);

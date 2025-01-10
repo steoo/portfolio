@@ -33,9 +33,16 @@ export const MenuNav = styled.nav`
     list-style: none;
     margin-bottom: ${({ theme }) => theme.rootVerticalMargin};
   }
+
   p {
     font-size: ${({ theme }) => theme.smallText};
     text-transform: lowercase;
+  }
+
+  @media (max-width: ${(props) => props.theme.laptop}) {
+    li:nth-child(3) {
+      text-align: right;
+    }
   }
 `;
 

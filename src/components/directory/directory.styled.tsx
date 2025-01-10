@@ -7,6 +7,10 @@ export const DirectoryContainer = styled.div`
 
   row-gap: 20px;
 
+  a {
+    font-size: ${({ theme }) => theme.tinyText};
+  }
+
   h1 {
     font-size: ${({ theme }) => theme.tinyText};
     color: ${({ theme }) => theme.white};

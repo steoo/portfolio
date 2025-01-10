@@ -12,8 +12,6 @@ const Home = () => {
 
   return (
     <HomeContainer>
-      {/* <p>{data.aboutPage.description}</p>
-       */}
       <BlocksRenderer content={data.aboutPage.richDescription} />
     </HomeContainer>
   );

@@ -23,7 +23,6 @@ export type Scalars = {
 export type AboutPage = {
   __typename?: 'AboutPage';
   createdAt?: Maybe<Scalars['DateTime']['output']>;
-  description: Scalars['String']['output'];
   documentId: Scalars['ID']['output'];
   publishedAt?: Maybe<Scalars['DateTime']['output']>;
   richDescription?: Maybe<Scalars['JSON']['output']>;
@@ -31,7 +30,6 @@ export type AboutPage = {
 };
 
 export type AboutPageInput = {
-  description?: InputMaybe<Scalars['String']['input']>;
   publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
   richDescription?: InputMaybe<Scalars['JSON']['input']>;
 };
@@ -193,12 +191,16 @@ export type DirectoryPage = {
   description?: Maybe<Scalars['String']['output']>;
   documentId: Scalars['ID']['output'];
   publishedAt?: Maybe<Scalars['DateTime']['output']>;
+  send?: Maybe<Scalars['String']['output']>;
+  sendLink?: Maybe<Scalars['String']['output']>;
   updatedAt?: Maybe<Scalars['DateTime']['output']>;
 };
 
 export type DirectoryPageInput = {
   description?: InputMaybe<Scalars['String']['input']>;
   publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
+  send?: InputMaybe<Scalars['String']['input']>;
+  sendLink?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type Experience = {
@@ -1387,7 +1389,7 @@ export type GetExperiencesQuery = { __typename?: 'Query', global?: { __typename?
 export type GetHomeQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetHomeQuery = { __typename?: 'Query', aboutPage?: { __typename?: 'AboutPage', description: string } | null };
+export type GetHomeQuery = { __typename?: 'Query', aboutPage?: { __typename?: 'AboutPage', richDescription?: any | null } | null };
 
 export type GetRootQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -1403,6 +1405,6 @@ export type GetProjectsQuery = { __typename?: 'Query', projects: Array<{ __typen
 export const GetContactsDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"GetContacts"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"contactLinks"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"url"}}]}}]}}]} as unknown as DocumentNode<GetContactsQuery, GetContactsQueryVariables>;
 export const GetDirectoryDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"GetDirectory"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"directoryPage"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"description"}}]}},{"kind":"Field","name":{"kind":"Name","value":"directoryEntries"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"documentId"}},{"kind":"Field","name":{"kind":"Name","value":"metadata"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"link"}}]}}]}}]}}]} as unknown as DocumentNode<GetDirectoryQuery, GetDirectoryQueryVariables>;
 export const GetExperiencesDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"GetExperiences"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"global"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"experience"}}]}},{"kind":"Field","name":{"kind":"Name","value":"experiences"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"documentId"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"year"}}]}}]}}]} as unknown as DocumentNode<GetExperiencesQuery, GetExperiencesQueryVariables>;
-export const GetHomeDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"GetHOME"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"aboutPage"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"description"}}]}}]}}]} as unknown as DocumentNode<GetHomeQuery, GetHomeQueryVariables>;
+export const GetHomeDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"GetHOME"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"aboutPage"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"richDescription"}}]}}]}}]} as unknown as DocumentNode<GetHomeQuery, GetHomeQueryVariables>;
 export const GetRootDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"GetRoot"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"global"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"about"}},{"kind":"Field","name":{"kind":"Name","value":"contacts"}},{"kind":"Field","name":{"kind":"Name","value":"directory"}},{"kind":"Field","name":{"kind":"Name","value":"experience"}},{"kind":"Field","name":{"kind":"Name","value":"selectedProjects"}}]}}]}}]} as unknown as DocumentNode<GetRootQuery, GetRootQueryVariables>;
 export const GetProjectsDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"GetProjects"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"projects"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"metadata"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"link"}},{"kind":"Field","name":{"kind":"Name","value":"title"}}]}}]}}]}}]} as unknown as DocumentNode<GetProjectsQuery, GetProjectsQueryVariables>;

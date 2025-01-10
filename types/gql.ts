@@ -17,7 +17,7 @@ const documents = {
     "\n  query GetContacts {\n    contactLinks {\n      title\n      url\n    }\n  }\n": types.GetContactsDocument,
     "\n  query GetDirectory {\n    directoryPage {\n      description\n    }\n    directoryEntries {\n      documentId\n      metadata {\n        title\n        description\n        link\n      }\n    }\n  }\n": types.GetDirectoryDocument,
     "\n  query GetExperiences {\n    global {\n      experience\n    }\n    experiences {\n      documentId\n      title\n      year\n    }\n  }\n": types.GetExperiencesDocument,
-    "\n  query GetHOME {\n    aboutPage {\n      description\n    }\n  }\n": types.GetHomeDocument,
+    "\n  query GetHOME {\n    aboutPage {\n      richDescription\n    }\n  }\n": types.GetHomeDocument,
     "\n  query GetRoot {\n    global {\n      about\n      contacts\n      directory\n      experience\n      selectedProjects\n    }\n  }\n": types.GetRootDocument,
     "\n  query GetProjects {\n    projects {\n      metadata {\n        description\n        id\n        link\n        title\n      }\n    }\n  }\n": types.GetProjectsDocument,
 };
@@ -51,7 +51,7 @@ export function graphql(source: "\n  query GetExperiences {\n    global {\n     
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(source: "\n  query GetHOME {\n    aboutPage {\n      description\n    }\n  }\n"): (typeof documents)["\n  query GetHOME {\n    aboutPage {\n      description\n    }\n  }\n"];
+export function graphql(source: "\n  query GetHOME {\n    aboutPage {\n      richDescription\n    }\n  }\n"): (typeof documents)["\n  query GetHOME {\n    aboutPage {\n      richDescription\n    }\n  }\n"];
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */

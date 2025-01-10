@@ -4,6 +4,8 @@ export const GET_DIRECTORY = gql`
   query GetDirectory {
     directoryPage {
       description
+      send
+      sendLink
     }
     directoryEntries {
       documentId

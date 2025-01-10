@@ -17,7 +17,12 @@ export default function Directory() {
   return (
     <PageContainer>
       <DirectoryContainer>
-        <h1>{data.directoryPage.description}</h1>
+        <div>
+          <h1>{data.directoryPage.description}</h1>
+          <a href={String(data.directoryPage.sendLink)}>
+            {data.directoryPage.send}
+          </a>
+        </div>
         {data.directoryEntries.map(({ documentId, metadata }) => (
           <DirectoryItem key={documentId} rel="noopener noreferrer">
             <a

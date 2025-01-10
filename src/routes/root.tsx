@@ -1,5 +1,6 @@
 import { Outlet } from 'react-router-dom';
 
+import { DynamicGradient } from '../components/root/dynamicGradient';
 import Menu from '../components/root/menu';
 import {
   GlobalStyle,
@@ -12,6 +13,7 @@ import {
 const Root = () => {
   return (
     <RootContainer>
+      <DynamicGradient />
       <GlobalStyle />
       <Menu />
       <OutletContainer>

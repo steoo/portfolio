@@ -1,8 +1,6 @@
-import { DefaultTheme } from 'styled-components';
-
 import { generateClampSizes } from '../../utils/styled-helpers';
 
-export const theme: DefaultTheme = {
+const theme = {
   red: '#FF0004',
   white: '#FFFFFF',
   black: '#000000',
@@ -24,4 +22,4 @@ export const theme: DefaultTheme = {
   desktop: '2560px', // Desktop
 };
 
-export type ThemeType = typeof theme;
+export default theme;

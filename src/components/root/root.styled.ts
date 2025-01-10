@@ -25,7 +25,6 @@ export const GradientContainer = styled.div<GradientProps>`
 
 export const GlobalStyle = createGlobalStyle`
   body {
-    
     padding: ${({ theme }) => theme.rootVerticalMargin} ${({ theme }) => theme.rootHorizontalMargin};
     
     ${FlexColumnBetween};
@@ -69,6 +68,8 @@ export const MenuItem = styled(Link)<{ $active?: boolean }>`
   color: ${({ $active, theme }) => ($active ? theme.white : theme.black)};
   font-size: ${({ theme }) => theme.menuItem};
   text-decoration: none;
+
+  /* mix-blend-mode: difference; */
 `;
 
 export const OutletContainer = styled.main`

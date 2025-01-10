@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import styled, { createGlobalStyle } from 'styled-components';
 
-import { FlexColumnBetween } from '../global/global.styled';
+import { FlexBetween, FlexColumnBetween } from '../global/global.styled';
 
 export const GlobalStyle = createGlobalStyle`
   body {
@@ -21,18 +21,21 @@ export const RootContainer = styled.div`
 
 export const Header = styled.div`
   border-bottom: 4px solid ${({ theme }) => theme.black};
-
-  padding-bottom: ${({ theme }) => theme.rootVerticalMargin};
 `;
 
 export const MenuNav = styled.nav`
   text-transform: uppercase;
 
   ol {
-    list-style: none;
-
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+
+    list-style: none;
+    margin-bottom: ${({ theme }) => theme.rootVerticalMargin};
+  }
+  p {
+    font-size: ${({ theme }) => theme.smallText};
+    text-transform: lowercase;
   }
 `;
 
@@ -45,4 +48,18 @@ export const MenuItem = styled(Link)<{ $active?: boolean }>`
 export const OutletContainer = styled.main`
   display: flex;
   flex: 1;
+`;
+
+export const Footer = styled.footer`
+  ${FlexBetween};
+
+  border-top: 4px solid ${({ theme }) => theme.black};
+  margin-top: ${({ theme }) => theme.footerVerticalMargin};
+  padding-top: 8px;
+
+  p,
+  a {
+    font-size: ${({ theme }) => theme.smallText};
+  }
+  text-transform: lowercase;
 `;

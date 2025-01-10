@@ -20,10 +20,10 @@ const SelectedProjects = () => {
         {data.projects.map(({ metadata }) => (
           <ProjectComponent as="li" key={metadata[0]?.id} className="project">
             <img width={15} src={ArrowRight} alt="arrow right" />
-            <h2>{metadata[0]?.description}</h2>
             <Link to={metadata[0]?.link as string} target="_blank">
               <h1>{metadata[0]?.title}</h1>
             </Link>
+            <h2>{metadata[0]?.description}</h2>
           </ProjectComponent>
         ))}
       </ProjectsContainer>

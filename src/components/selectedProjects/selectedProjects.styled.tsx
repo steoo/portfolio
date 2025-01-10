@@ -20,11 +20,6 @@ export const Project = styled.div`
   display: list-item;
   position: relative;
 
-  /* font-family: 'OTNeueMontrealVariable'; */
-  /* font-variation-settings: 'wght' 700; */
-
-  transform-origin: top left;
-
   a {
     text-decoration: none;
   }
@@ -41,9 +36,9 @@ export const Project = styled.div`
   }
 
   h2 {
-    margin-top: 16px;
+    margin-top: 8px;
     font-size: ${({ theme }) => theme.smallText};
-    text-transform: lowercase;
+    text-transform: none;
 
     max-width: ${generateClampSizes(180, 400)};
   }

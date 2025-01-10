@@ -21,5 +21,5 @@ export const PageContainer = styled.div`
   display: flex;
   flex: 1;
 
-  padding-top: ${generateClampSizes(64, 128)};
+  padding-top: ${generateClampSizes(48, 96)};
 `;

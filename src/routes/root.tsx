@@ -1,74 +1,28 @@
-import { Outlet, useLoaderData, useLocation } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 
-import { Global } from '../../types/graphql';
-import { QueryLoaderResult } from '../../types/loaders';
+import Menu from '../components/root/menu';
 import {
   GlobalStyle,
-  MenuNav,
   MenuItem,
   OutletContainer,
   RootContainer,
-  Header,
+  Footer,
 } from '../components/root/root.styled';
 
 const Root = () => {
-  const { data } = useLoaderData() as QueryLoaderResult<{
-    global: Global;
-  }>;
-  const location = useLocation();
-
-  const isActive = (path: string) =>
-    location.pathname.replace('/', '') === path;
-
   return (
     <RootContainer>
       <GlobalStyle />
-      <Header>
-        <MenuNav>
-          <ol>
-            <li>
-              <MenuItem to="/home" $active={isActive('home')}>
-                {data.global.about}
-              </MenuItem>
-            </li>
-            <li>
-              <MenuItem
-                to="/selected-projects"
-                $active={isActive('selected-projects')}
-              >
-                {data.global.selectedProjects}
-              </MenuItem>
-            </li>
-            <li>
-              <MenuItem to="/experiences" $active={isActive('experiences')}>
-                {data.global.experience}
-              </MenuItem>
-            </li>
-            <li>
-              <MenuItem to="/contacts" $active={isActive('contacts')}>
-                {data.global.contacts}
-              </MenuItem>
-            </li>
-            <li>
-              <MenuItem to="/directory" $active={isActive('directory')}>
-                {data.global.directory}
-              </MenuItem>
-            </li>
-          </ol>
-        </MenuNav>
-      </Header>
+      <Menu />
       <OutletContainer>
         <Outlet />
       </OutletContainer>
-      <footer>
-        <MenuNav>
-          <ol>
-            <li>
-              <MenuItem to="/home">stefano imparato</MenuItem>
-            </li>
-          </ol>
-        </MenuNav>
-      </footer>
+      <Footer>
+        <MenuItem to="/home">stefano imparato</MenuItem>
+        <a href="https://github.com/steoo/portfolio" target="_blank">
+          code on Github
+        </a>
+      </Footer>
     </RootContainer>
   );
 };

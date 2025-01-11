@@ -3,9 +3,28 @@ import styled, { createGlobalStyle } from 'styled-components';
 
 import { FlexBetween, FlexColumnBetween } from '../global/global.styled';
 
+interface GradientProps {
+  $x: number;
+  $y: number;
+}
+
+export const GradientContainer = styled.div<GradientProps>`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: radial-gradient(
+    circle 50vh at ${(props) => props.$x}% ${(props) => props.$y}%,
+    ${({ theme }) => `${theme.red}DD`} 0%,
+    ${({ theme }) => theme.red} 100%
+  );
+  transition: background 0.3s ease;
+`;
+
 export const GlobalStyle = createGlobalStyle`
   body {
-    background-color: ${({ theme }) => theme.red};
     
     padding: ${({ theme }) => theme.rootVerticalMargin} ${({ theme }) => theme.rootHorizontalMargin};
     

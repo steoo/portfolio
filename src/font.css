@@ -28,7 +28,7 @@
   font-style: normal;
 }
 
-@font-face {
+/* @font-face {
   font-family: 'OTNeueMontrealVariable';
   src:
     url('/fonts/ot-neue-montreal/OTNeueMontreal-SqueezedVariable.woff2')
@@ -39,4 +39,4 @@
       format('truetype');
   font-weight: 200 800;
   font-style: normal;
-}
+} */

@@ -8,28 +8,32 @@ interface GradientProps {
   $y: number;
 }
 
-export const GradientContainer = styled.div<GradientProps>`
+export const GlobalStyle = createGlobalStyle`
+  body {
+    padding: ${({ theme }) => theme.rootVerticalMargin} ${({ theme }) => theme.rootHorizontalMargin};
+    
+    ${FlexColumnBetween};
+  }
+`;
+
+export const GradientContainer = styled.div.attrs<GradientProps>(
+  ({ $x, $y, theme }) => ({
+    style: {
+      background: `radial-gradient(
+      circle 50vh at ${$x}% ${$y}%,
+      ${theme.red}bb 0%,
+      ${theme.red} 100%
+    )`,
+    },
+  })
+)`
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   z-index: -1;
-  background: radial-gradient(
-    circle 50vh at ${(props) => props.$x}% ${(props) => props.$y}%,
-    ${({ theme }) => `${theme.red}DD`} 0%,
-    ${({ theme }) => theme.red} 100%
-  );
-  transition: background 0.3s ease;
-`;
-
-export const GlobalStyle = createGlobalStyle`
-  body {
-    
-    padding: ${({ theme }) => theme.rootVerticalMargin} ${({ theme }) => theme.rootHorizontalMargin};
-    
-    ${FlexColumnBetween};
-  }
+  will-change: background;
 `;
 
 export const RootContainer = styled.div`
@@ -69,6 +73,8 @@ export const MenuItem = styled(Link)<{ $active?: boolean }>`
   color: ${({ $active, theme }) => ($active ? theme.white : theme.black)};
   font-size: ${({ theme }) => theme.menuItem};
   text-decoration: none;
+
+  /* mix-blend-mode: difference; */
 `;
 
 export const OutletContainer = styled.main`

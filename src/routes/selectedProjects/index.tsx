@@ -22,8 +22,8 @@ const SelectedProjects = () => {
             <img width={15} src={ArrowRight} alt="arrow right" />
             <Link to={metadata[0]?.link as string} target="_blank">
               <h1>{metadata[0]?.title}</h1>
+              <h2>{metadata[0]?.description}</h2>
             </Link>
-            <h2>{metadata[0]?.description}</h2>
           </ProjectComponent>
         ))}
       </ProjectsContainer>

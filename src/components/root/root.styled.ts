@@ -21,8 +21,8 @@ export const GradientContainer = styled.div.attrs<GradientProps>(
     style: {
       background: `radial-gradient(
       circle 50vh at ${$x}% ${$y}%,
-      ${theme.red}bb 0%,
-      ${theme.red} 100%
+      ${theme.brightCrimson}bb 0%,
+      ${theme.brightCrimson} 100%
     )`,
     },
   })

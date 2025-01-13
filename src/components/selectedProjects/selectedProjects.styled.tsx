@@ -26,15 +26,22 @@ export const Project = styled.div`
     word-wrap: break-word;
   }
 
+  a {
+    text-decoration: none;
+  }
+
   h1 {
     font-size: ${({ theme }) => theme.mediumText};
     letter-spacing: 2px;
+
+    text-decoration: underline;
   }
 
   h2 {
     font-size: ${({ theme }) => theme.smallText};
     text-transform: none;
 
+    margin-top: 6px;
     max-width: ${generateClampSizes(260, 400)};
   }
 
@@ -44,10 +51,6 @@ export const Project = styled.div`
 
   @media (min-width: ${(props) => props.theme.laptop}) {
     display: list-item;
-
-    a {
-      text-decoration: none;
-    }
 
     img {
       position: absolute;

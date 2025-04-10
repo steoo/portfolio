@@ -11,12 +11,6 @@ import 'normalize.css';
 import './index.css';
 import './font.css';
 
-const ApolloProvider = React.lazy(() =>
-  import('@apollo/client').then((module) => ({
-    default: module.ApolloProvider,
-  }))
-);
-
 const ThemeProvider = React.lazy(() =>
   import('styled-components').then((module) => ({
     default: module.ThemeProvider,
@@ -30,6 +24,12 @@ async function render() {
       isProduction: false,
     });
   }
+
+  const ApolloProvider = React.lazy(() =>
+    import('@apollo/client').then((module) => ({
+      default: module.ApolloProvider,
+    }))
+  );
 
   createRoot(document.getElementById('root')!).render(
     <StrictMode>

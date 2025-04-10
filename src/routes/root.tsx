@@ -22,7 +22,7 @@ const Root = () => {
       <Footer>
         <MenuItem to="/home">stefano imparato</MenuItem>
         <a href="https://github.com/steoo/portfolio" target="_blank">
-          you can find thecode on Github
+          you can find the code on Github
         </a>
       </Footer>
     </RootContainer>
